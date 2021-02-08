@@ -53,6 +53,7 @@
         <rest-maven-plugin.version>0.1.4</rest-maven-plugin.version>
         <reflections.version>0.9.11</reflections.version>
         <equals-verifier.version>2.4.3</equals-verifier.version>
+		<spotbug.version>3.1.11</spotbug.version>
 	</properties>
 
 	<dependencies>
@@ -159,11 +160,6 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>com.github.cjnygard</groupId>
-            <artifactId>rest-maven-plugin</artifactId>
-            <version>${rest-maven-plugin.version}</version>
-        </dependency>
 		<dependency>
 			<groupId>org.reflections</groupId>
 			<artifactId>reflections</artifactId>
@@ -256,37 +252,17 @@
 				</dependencies>
 			</plugin>
             <plugin>
-                <groupId>com.github.cjnygard</groupId>
-                <artifactId>rest-maven-plugin</artifactId>
-                <version>0.1.4</version>
-                <executions>
-                    <execution>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>rest-request</goal>
-                        </goals>
-                        <configuration>
-                            <endpoint>http://localhost:8081/cache</endpoint>
-                            <method>POST</method>
-                            <headers>
-                                <Content-Type>application/json</Content-Type>
-                            </headers>
-                            <requestType>
-                                <type>application</type>
-                                <subtype>json</subtype>
-                            </requestType>
-                            <responseType>
-                                <type>application</type>
-                                <subtype>json</subtype>
-                            </responseType>
-                            <fileset>
-                                <include>post.json</include>
-                                <directory>${project.build.resources.directory}</directory>
-                            </fileset>
-                            <outputDir>${project.basedir}/logs</outputDir>
-                        </configuration>
-                    </execution>
-                </executions>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.2.0</version>
+                <dependencies>
+                    <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+                    <dependency>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs</artifactId>
+                        <version>4.2.0</version>
+                    </dependency>
+                </dependencies>
             </plugin>
 		</plugins>
 	</build>
