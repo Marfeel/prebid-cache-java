@@ -8,7 +8,7 @@ ENV VERTICLE_HOME /usr/verticles
 #EXPOSE 5000
 
 # Copy your fat jar to the container
-COPY $VERTICLE_FILE $VERTICLE_HOME/
+COPY ./target/$VERTICLE_FILE $VERTICLE_HOME/
 
 RUN mkdir -p /var/log/mbid-cache/
 
