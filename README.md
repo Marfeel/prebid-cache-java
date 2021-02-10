@@ -447,4 +447,3 @@ $ mvn clean gplus:execute package
 ```
 
 If there are any questions, issues, or concerns, please submit them to https://github.com/prebid/prebid-cache-java/issues/.
-
