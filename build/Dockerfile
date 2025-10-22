@@ -1,4 +1,4 @@
-FROM eclipse-temurin:8u462-b08-jdk-jammy
+FROM eclipse-temurin:8u462-b08-jdk-noble
 
 ENV VERTICLE_FILE prebid-cache.jar
 
